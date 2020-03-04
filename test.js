@@ -1,9 +1,11 @@
-let obj = JSON.parse($response.body);
+try {
+  let obj = JSON.parse($response.body);
+  console.log($response);
 
-if (obj.data && !obj.data.terminateisolation) {
-  obj.data.terminateisolation = true;
+  if (obj && obj.data && !obj.data.terminateisolation) {
+    obj.data.terminateisolation = true;
+    $done({body: JSON.stringify(obj)});
+  }
+ 
 }
-
-console.log(obj);
-
-$done({body: JSON.stringify(obj)});
+  
