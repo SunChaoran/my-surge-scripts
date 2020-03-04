@@ -7,5 +7,6 @@ try {
     $done({body: JSON.stringify(obj)});
   }
  
+} catch(e) {
+  console.log(e);
 }
-  
